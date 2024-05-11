@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GameSettings" load_steps=2 format=3 uid="uid://cyetlse14h2lo"]
+
+[ext_resource type="Script" path="res://Core/Config/GameSettings.cs" id="1_07c5q"]
+
+[resource]
+script = ExtResource("1_07c5q")
+GameTitle = "AwesomeGame"
+GameDescription = "I swear this game is good"
+KeybindNames = {
+"backward": "Move backwards",
+"forward": "Move forwards",
+"left": "Move left",
+"right": "Move right",
+"toggle_debug_view": "Toggle Debugging View"
+}
+EnableSteamIntegration = false
+SteamAppId = 0

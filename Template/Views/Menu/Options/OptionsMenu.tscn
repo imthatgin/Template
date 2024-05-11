@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcdmj7rol084k"]
+
+[ext_resource type="Script" path="res://Views/Menu/Options/OptionsMenu.cs" id="1_30dt0"]
+[ext_resource type="PackedScene" uid="uid://dx738b4yd4iyg" path="res://Views/Menu/Options/Keybindings/KeybindingsMenu.tscn" id="1_soq42"]
+[ext_resource type="PackedScene" uid="uid://c8o244w0qsr4w" path="res://Views/Menu/Options/GraphicsOptions/GraphicsOptionsMenu.tscn" id="3_x0tbx"]
+
+[node name="OptionsMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_30dt0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 44
+text = "Options"
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Keybindings" parent="MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("1_soq42")]
+layout_mode = 2
+
+[node name="Graphics" parent="MarginContainer/VBoxContainer/TabContainer" instance=ExtResource("3_x0tbx")]
+visible = false
+layout_mode = 2

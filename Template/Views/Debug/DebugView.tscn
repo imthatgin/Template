@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5mubegb7ygfw"]
+
+[ext_resource type="Script" path="res://Views/Debug/DebugView.cs" id="1_5xfu7"]
+
+[sub_resource type="SystemFont" id="SystemFont_6wyw0"]
+font_names = PackedStringArray("Consolas")
+
+[node name="DebugView" type="Control" node_paths=PackedStringArray("DebugRtl")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_5xfu7")
+DebugRtl = NodePath("MarginContainer/RichTextLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_6wyw0")

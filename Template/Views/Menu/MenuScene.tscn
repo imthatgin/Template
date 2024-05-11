@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb7wonyi2427"]
+
+[ext_resource type="Script" path="res://Views/Menu/MenuScene.cs" id="1_nyp1l"]
+[ext_resource type="PackedScene" uid="uid://dd4m5jkhvvd5j" path="res://Views/Game/GameScene.tscn" id="2_cmkv7"]
+[ext_resource type="PackedScene" uid="uid://dcdmj7rol084k" path="res://Views/Menu/Options/OptionsMenu.tscn" id="2_icf0k"]
+
+[node name="MenuScene" type="Control" node_paths=PackedStringArray("TitleLabel", "DescriptionLabel", "OptionsButton", "ExitButton", "PlayButton", "OptionsMenu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nyp1l")
+TitleLabel = NodePath("MarginContainer/GridContainer/VBoxContainer/TitleLabels/TitleLabel")
+DescriptionLabel = NodePath("MarginContainer/GridContainer/VBoxContainer/TitleLabels/DescriptionLabel")
+OptionsButton = NodePath("MarginContainer/GridContainer/VBoxContainer/GameButtons/OptionsButton")
+ExitButton = NodePath("MarginContainer/GridContainer/VBoxContainer/GameButtons/ExitButton")
+PlayButton = NodePath("MarginContainer/GridContainer/VBoxContainer/GameButtons/PlayButton")
+OptionsMenu = NodePath("MarginContainer/GridContainer/OptionsMenu")
+GameScene = ExtResource("2_cmkv7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="TitleLabels" type="VBoxContainer" parent="MarginContainer/GridContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/GridContainer/VBoxContainer/TitleLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "game title"
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/GridContainer/VBoxContainer/TitleLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "game description"
+
+[node name="GameButtons" type="VBoxContainer" parent="MarginContainer/GridContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="PlayButton" type="Button" parent="MarginContainer/GridContainer/VBoxContainer/GameButtons"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 33
+text = "PLAY GAME"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/GridContainer/VBoxContainer/GameButtons"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 33
+text = "OPTIONS"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/GridContainer/VBoxContainer/GameButtons"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 33
+text = "EXIT
+"
+
+[node name="OptionsMenu" parent="MarginContainer/GridContainer" instance=ExtResource("2_icf0k")]
+visible = false
+layout_mode = 2

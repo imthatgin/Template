@@ -1,0 +1,84 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8o244w0qsr4w"]
+
+[ext_resource type="Script" path="res://Views/Menu/Options/GraphicsOptions/GraphicsOptionsMenu.cs" id="1_epgwf"]
+
+[node name="GraphicsMenu" type="MarginContainer" node_paths=PackedStringArray("ResolutionOptionButton", "WindowTypeOptionButton", "ApplyButton", "ResetButton")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+script = ExtResource("1_epgwf")
+ResolutionOptionButton = NodePath("VBoxContainer/GraphicsScrollContainer/GraphicsList/Resolution/ResolutionOptionButton")
+WindowTypeOptionButton = NodePath("VBoxContainer/GraphicsScrollContainer/GraphicsList/WindowType/WindowTypeOptionButton")
+ApplyButton = NodePath("VBoxContainer/HBoxContainer/ApplyButton")
+ResetButton = NodePath("VBoxContainer/HBoxContainer/ResetButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="GraphicsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "Graphics"
+
+[node name="GraphicsScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GraphicsList" type="VBoxContainer" parent="VBoxContainer/GraphicsScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="Resolution" type="HBoxContainer" parent="VBoxContainer/GraphicsScrollContainer/GraphicsList"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResolutionLabel" type="Label" parent="VBoxContainer/GraphicsScrollContainer/GraphicsList/Resolution"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="VBoxContainer/GraphicsScrollContainer/GraphicsList/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+allow_reselect = true
+
+[node name="WindowType" type="HBoxContainer" parent="VBoxContainer/GraphicsScrollContainer/GraphicsList"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WindowTypeLabel" type="Label" parent="VBoxContainer/GraphicsScrollContainer/GraphicsList/WindowType"]
+layout_mode = 2
+text = "Window mode"
+
+[node name="WindowTypeOptionButton" type="OptionButton" parent="VBoxContainer/GraphicsScrollContainer/GraphicsList/WindowType"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+allow_reselect = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="ResetButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "Reset to default"
+
+[node name="ApplyButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "Apply changes"

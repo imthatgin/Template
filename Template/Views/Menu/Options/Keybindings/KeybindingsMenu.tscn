@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx738b4yd4iyg"]
+
+[ext_resource type="Script" path="res://Views/Menu/Options/Keybindings/KeybindingsMenu.cs" id="1_ak2t5"]
+[ext_resource type="PackedScene" uid="uid://cq1v3kyqo43oi" path="res://Views/Menu/Options/Keybindings/InputButton.tscn" id="2_gg2jp"]
+
+[node name="KeybindingsMenu" type="MarginContainer" node_paths=PackedStringArray("KeyInputScrollContainer", "ResetButton")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+script = ExtResource("1_ak2t5")
+InputButton = ExtResource("2_gg2jp")
+KeyInputScrollContainer = NodePath("VBoxContainer/KeybindsScrollContainer/KeybindList")
+ResetButton = NodePath("VBoxContainer/ResetKeybindButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="KeybindsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+text = "Keybindings"
+
+[node name="KeybindsScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="KeybindList" type="VBoxContainer" parent="VBoxContainer/KeybindsScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="InputButton" parent="VBoxContainer/KeybindsScrollContainer/KeybindList" instance=ExtResource("2_gg2jp")]
+layout_mode = 2
+
+[node name="InputButton2" parent="VBoxContainer/KeybindsScrollContainer/KeybindList" instance=ExtResource("2_gg2jp")]
+layout_mode = 2
+
+[node name="InputButton3" parent="VBoxContainer/KeybindsScrollContainer/KeybindList" instance=ExtResource("2_gg2jp")]
+layout_mode = 2
+
+[node name="ResetKeybindButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 33
+text = "Reset to default"
